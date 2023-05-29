@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  </head>
+  <body>
+    <div id="placeholder1">
+      <div class="typewriter">
+        <b> I'm a DESIGNER. </b>
+      </div>
+    </div>
+
+    <div class="black space">
+      <b>ABOUT</b>
+      <p>
+        안녕하세요. 임나연입니다. <br />블라블라블라블라<br />포트폴리오입니다.
+      </p>
+      <div class="pcup1 fade-in">
+        <img
+          src="img/KakaoTalk_20230530_015321473.png"
+          alt=""
+          class="cup1 image"
+        />
+      </div>
+    </div>
+
+    <div id="container">
+      <section class="panel one">
+        <b>POSTER</b>
+        <img src="img/PLAY_A.png" alt="" />
+        <img src="img/PLAY_AB.png" alt="" />
+        <img src="img/PLAY_B.png" alt="" />
+        <img src="img/PLAY_O.png" alt="" />
+      </section>
+
+      <section class="panel two">
+        <b>POSTER</b>
+        <img src="img/2201110301_임나연_운동화.png" alt="" />
+        <img src="img/2201110301_임나연_토마토 케첩.png" alt="" />
+      </section>
+
+      <section class="panel three">
+        <b>BOOK</b>
+        <img src="img/2201110301_임나연_222-페이지-1.jpg" alt="" />
+        <img src="img/2201110301_임나연_222.jpg" alt="" />
+        <img src="img/2201110301_임나연_222 (1).jpg" alt="" />
+      </section>
+
+      <section class="panel four">
+        <b>UI</b>
+        <img src="img/first_main.png" alt="" />
+        <img src="img/체험 시작 화면.png" alt="" />
+        <img src="img/마지막 장면4.png" alt="" />
+        <img src="img/피해자 시작 화면 & 로그인.png" alt="" />
+        <img src="img/메인 홈화면3.png" alt="" />
+        <img src="img/메인 홈화면3-1.png" alt="" />
+      </section>
+    </div>
+
+    <div class="footer space">
+      <b>CONTACT</b>
+      <p>
+        instagram : @jjjjjj<br />e-mail : jjjj@jjj.com <br />phone :
+        010-****-****
+      </p>
+    </div>
+
+    <script>
+      var controller = new ScrollMagic.Controller();
+
+      var wipeAnimation = new TimelineMax({})
+        .fromTo(".two", 1, { x: "-100%" }, { x: "0%" })
+        .fromTo(".three", 1, { y: "-100%" }, { y: "0%" })
+        .fromTo(".four", 1, { x: "100%" }, { x: "0%" });
+
+      var scene = new ScrollMagic.Scene({
+        triggerElement: "#container",
+        triggerHook: "onLeave",
+        duration: "500%", //이 값이 클 수록 천천히 덮어씀
+      })
+        .setPin("#container")
+        .setTween(wipeAnimation)
+
+        .addTo(controller);
+    </script>
+
+    <script>
+      const fadeEls = document.querySelectorAll(".fade-in");
+      gsap.from(fadeEls, {
+        duration: 2,
+        scale: 0.3,
+        ease: "elastic",
+        opacity: 0,
+        stagger: 0.7,
+      });
+    </script>
+  </body>
+</html>
